@@ -1,6 +1,3 @@
-# Campus_Bank
-Bank website made using Express.js backend and mongodb database
-install them and then run the project 
 {
   "dependencies": {
     "alert": "^5.1.1",
