@@ -14,7 +14,7 @@ var nameg, admnog, usernameg, dobg, passwordg, doornog, nearpostg, towng, cityg,
 
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static('public')); 
 app.use(express.json());
 app.use(bodyparser.urlencoded({
   extended: false
