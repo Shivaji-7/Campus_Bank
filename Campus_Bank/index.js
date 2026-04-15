@@ -8,7 +8,7 @@ const ejs = require('ejs');
 
 
 
-mongoose.connect("mongodb://localhost:27017/test");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/campus_bank");
 const app = express();
 var nameg, admnog, usernameg, dobg, passwordg, doornog, nearpostg, towng, cityg, pincodeg, loginusr, loginpswd, abcd, balan, uss, admnum_frnd, money_frnd, new_money, money_acc, acch_name, acch_admno;
 
@@ -1019,17 +1019,18 @@ app.post("/hist",(req,res)=>{
 })
 
 
-app.get("/checkpin.html",(req,res)=>
-{
+app.get("/checkpin.html", (req, res) => {
   const gh = localStorage.getItem("dusrname");
+
   if (gh == null) {
-    res.redirect("/");
-    res.send("<h1>please login to view this page</h1>");
+    return res.redirect("/");
   }
-  res.sendFile(__dirname+"/checkpin.html");
+
+  res.sendFile(__dirname + "/checkpin.html");
 });
 
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, (req, res) => {
-  console.log("running on port 3000");
+app.listen(PORT, () => {
+  console.log("Running on port " + PORT);
 });
